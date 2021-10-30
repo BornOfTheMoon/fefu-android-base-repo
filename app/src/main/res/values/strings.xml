@@ -41,4 +41,16 @@
     <string name="users_activities_screen_text">Активности пользователей</string>
 
     <string name="profile_screen_text">Профиль</string>
+
+    <string name="desc_title">название</string>
+    <string name="desc_back_button">назад</string>
+    <string name="desc_logo">логотип</string>
+    <string name="tv_vertical_line_separator">|</string>
+
+    <string name="tv_activity_card_finish_time_header">Финиш</string>
+    <string name="tv_activity_card_start_time_header">Старт</string>
+    <string name="tv_my_activities_sub_header">Нажимай на кнопку ниже и начинаем\nтрекать активность</string>
+    <string name="tv_my_activities_header">Время потренить</string>
+
+    <string name="comment_hint">Комментарий</string>
 </resources>

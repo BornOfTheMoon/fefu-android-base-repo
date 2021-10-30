@@ -1,20 +1,25 @@
-package com.example.first_homework.screens.activity
+package com.example.first_homework.screens.activity.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.first_homework.databinding.FragmentMyActivitiesBinding
+import com.example.first_homework.databinding.FragmentProfileBinding
 
-class MyActivitiesFragment: Fragment() {
-    private var _binding: FragmentMyActivitiesBinding? = null
+class ProfileFragment : Fragment() {
+
+    private var _binding: FragmentProfileBinding? = null
 
     private val binding get() = _binding!!
 
+
+
     companion object {
-        fun newInstance(): MyActivitiesFragment {
-            return MyActivitiesFragment()
+        const val TAG = "Profile"
+
+        fun newInstance(): ProfileFragment {
+            return ProfileFragment()
         }
     }
 
@@ -23,7 +28,7 @@ class MyActivitiesFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentMyActivitiesBinding.inflate(layoutInflater)
+        _binding = FragmentProfileBinding.inflate(layoutInflater)
         return binding.root
     }
 

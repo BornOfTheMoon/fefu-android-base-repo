@@ -1,4 +1,4 @@
-package com.example.first_homework.screens.activity
+package com.example.first_homework.screens.activity.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,8 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.tabs.TabLayoutMediator
 import com.example.first_homework.R
 import com.example.first_homework.databinding.FragmentActivitiesBinding
-
+import com.example.first_homework.screens.activity.adapters.ActionsFragmentAdapter
+import com.example.first_homework.screens.activity.Tabs
 
 
 class ActivitiesFragment: Fragment() {
@@ -19,7 +20,7 @@ class ActivitiesFragment: Fragment() {
     companion object {
         const val TAG = "Actions"
 
-        fun newInstance(): ActivitiesFragment{
+        fun newInstance(): ActivitiesFragment {
             val args = Bundle()
             val fragment = ActivitiesFragment()
             fragment.arguments = args
@@ -38,9 +39,9 @@ class ActivitiesFragment: Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val adapter = ActionsFragmentHandler(this)
+        val adapter = ActionsFragmentAdapter(this)
         binding.viewPager.adapter = adapter
-        TabLayoutMediator(binding.tlTabs, binding.viewPager) { tab, position ->
+        TabLayoutMediator(binding.tlActivitiesTabs, binding.viewPager) { tab, position ->
             tab.text =
                 if(position == Tabs.My.position) getString(R.string.my_activities_tab_title)
                 else getString(R.string.users_activities_tab_title)
