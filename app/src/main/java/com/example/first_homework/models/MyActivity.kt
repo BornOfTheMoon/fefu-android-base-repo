@@ -1,7 +1,9 @@
 package com.example.first_homework.models
 
-import com.example.first_homework.screens.activity.ListItems
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class MyActivity(
     override val name: String,
     override val metric: String,
@@ -9,5 +11,5 @@ data class MyActivity(
     override val duration: String,
     override val startTime: String,
     override val finishTime: String,
-    override val type: ListItems = ListItems.MyCard,
-) : IListItem, IActivity
+    override val type: ListItems = ListItems.MyCard
+) : IActivity, Parcelable

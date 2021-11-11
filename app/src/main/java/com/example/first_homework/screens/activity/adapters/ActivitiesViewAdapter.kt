@@ -5,11 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.first_homework.models.IListItem
 import com.example.first_homework.R
-import com.example.first_homework.models.IActivity
-import com.example.first_homework.models.MyActivity
-import com.example.first_homework.models.UserActivity
-import com.example.first_homework.screens.activity.ListItems.MyCard
-import com.example.first_homework.screens.activity.ListItems.UserCard
+import com.example.first_homework.models.*
 import com.example.first_homework.screens.activity.viewholders.DateSeparatorViewHolder
 import com.example.first_homework.screens.activity.viewholders.ListItemViewHolder
 import com.example.first_homework.screens.activity.viewholders.ActivityViewHolder
@@ -30,12 +26,12 @@ class ActivitiesViewAdapter(staticActivities: List<IListItem>)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListItemViewHolder {
         return when (viewType) {
-            MyCard.ordinal -> {
+            ListItems.MyCard.ordinal -> {
                 val view = LayoutInflater.from(parent.context)
                     .inflate(R.layout.activity_card, parent, false)
                 ActivityViewHolder(view, myItemClickListener)
             }
-            UserCard.ordinal -> {
+            ListItems.UserCard.ordinal -> {
                 val view = LayoutInflater.from(parent.context)
                     .inflate(R.layout.activity_card, parent, false)
                 UserActivityViewHolder(view, userItemClickListener)

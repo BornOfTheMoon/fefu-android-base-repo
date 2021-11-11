@@ -20,15 +20,15 @@
 <!--            </intent-filter>-->
 <!--        </activity>-->
 
-<!--        <activity-->
-<!--            android:name=".screens.login.LoginScreenActivity"-->
-<!--            android:exported="true"-->
-<!--            />-->
-<!--        <activity-->
-<!--            android:name=".screens.registration.RegistrationScreenActivity"-->
-<!--            android:exported="true"-->
-<!--            android:windowSoftInputMode="adjustNothing"-->
-<!--            />-->
+        <activity
+            android:name=".screens.login.LoginScreenActivity"
+            android:exported="true"
+            />
+        <activity
+            android:name=".screens.registration.RegistrationScreenActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustNothing"
+            />
 
         <activity
             android:name=".screens.activity.MainActivityScreen"
