@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activities_navigation_graph"
+    app:startDestination="@id/activitiesFragment">
+
+    <fragment
+        android:id="@+id/activitiesFragment"
+        android:name="com.example.first_homework.screens.activity.fragments.Activities"
+        android:label="ActivitiesFragment">
+        <action
+            android:id="@+id/action_activitiesFragment_to_myActivityInfo"
+            app:destination="@id/myActivityInfo"
+            app:launchSingleTop="false">
+            <argument
+                android:name="Activity"
+                app:argType="com.example.first_homework.models.MyActivity"
+                />
+        </action>
+        <action
+            android:id="@+id/action_activitiesFragment_to_userActivityInfo"
+            app:destination="@id/userActivityInfo" >
+            <argument
+                android:name="Activity"
+                app:argType="com.example.first_homework.models.UserActivity"/>
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/myActivityInfo"
+        android:name="com.example.first_homework.screens.activity.fragments.MyActivityInfo"
+        android:label="MyActivityInfo">
+
+    </fragment>
+    <fragment
+        android:id="@+id/userActivityInfo"
+        android:name="com.example.first_homework.screens.activity.fragments.UserActivityInfo"
+        android:label="UserActivityInfo" />
+
+</navigation>
