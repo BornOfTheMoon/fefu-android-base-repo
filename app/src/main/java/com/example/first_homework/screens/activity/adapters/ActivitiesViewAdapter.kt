@@ -3,7 +3,6 @@ package com.example.first_homework.screens.activity.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.first_homework.models.IListItem
 import com.example.first_homework.R
 import com.example.first_homework.models.*
 import com.example.first_homework.screens.activity.viewholders.DateSeparatorViewHolder
@@ -16,9 +15,9 @@ class ActivitiesViewAdapter(staticActivities: List<IListItem>)
 
     private val activities = staticActivities.toMutableList()
     private var myItemClickListener: (Int, IActivity) -> Unit =
-        { position: Int, data: IActivity -> }
+        { _: Int, _: IActivity -> }
     private var userItemClickListener: (Int, IActivity) -> Unit =
-        { position: Int, data: IActivity ->}
+        { _: Int, _: IActivity ->}
 
     override fun getItemViewType(position: Int): Int {
         return activities[position].type.ordinal

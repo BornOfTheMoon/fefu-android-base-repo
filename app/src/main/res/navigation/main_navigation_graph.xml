@@ -7,11 +7,11 @@
 
     <fragment
         android:id="@+id/activitiesContainerFragment"
-        android:name="com.example.first_homework.screens.activity.fragments.ActivitiesContainer"
+        android:name="com.example.first_homework.screens.activity.fragments.activities.ActivitiesContainer"
         android:label="ActivitiesContainerFragment" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.first_homework.screens.activity.fragments.Profile"
+        android:name="com.example.first_homework.screens.activity.fragments.profile.Profile"
         android:label="ProfileFragment"
         tools:layout="@layout/fragment_profile" />
 </navigation>
