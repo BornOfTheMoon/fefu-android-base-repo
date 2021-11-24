@@ -11,7 +11,9 @@
         android:label="ActivitiesContainerFragment" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.first_homework.screens.activity.fragments.profile.Profile"
+        android:name="com.example.first_homework.screens.activity.fragments.profile.ProfileContainer"
         android:label="ProfileFragment"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile_container"
+        >
+    </fragment>
 </navigation>

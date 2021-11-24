@@ -16,5 +16,4 @@
         android:id="@+id/passwordChanger"
         android:name="com.example.first_homework.screens.activity.fragments.profile.PasswordChanger"
         android:label="PasswordChanger" />
-
 </navigation>
