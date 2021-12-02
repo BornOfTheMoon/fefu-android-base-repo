@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/activitiesFragment"
-        android:name="com.example.first_homework.screens.activity.fragments.Activities"
+        android:name="com.example.first_homework.screens.activity.fragments.activities.Activities"
         android:label="ActivitiesFragment">
         <action
             android:id="@+id/action_activitiesFragment_to_myActivityInfo"
@@ -24,16 +24,23 @@
                 android:name="Activity"
                 app:argType="com.example.first_homework.models.UserActivity"/>
         </action>
+        <action
+            android:id="@+id/action_activitiesFragment_to_activityActivity"
+            app:destination="@id/activityActivity" />
     </fragment>
     <fragment
         android:id="@+id/myActivityInfo"
-        android:name="com.example.first_homework.screens.activity.fragments.MyActivityInfo"
+        android:name="com.example.first_homework.screens.activity.fragments.activities.MyActivityInfo"
         android:label="MyActivityInfo">
 
     </fragment>
     <fragment
         android:id="@+id/userActivityInfo"
-        android:name="com.example.first_homework.screens.activity.fragments.UserActivityInfo"
+        android:name="com.example.first_homework.screens.activity.fragments.activities.UserActivityInfo"
         android:label="UserActivityInfo" />
+    <activity
+        android:id="@+id/activityActivity"
+        android:name="com.example.first_homework.screens.detail_activity.ActivityActivity"
+        android:label="DetailActivity" />
 
 </navigation>

@@ -16,7 +16,7 @@ class RegistrationScreenActivity: AppCompatActivity() {
         binding = RegistrationScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.goBackButton.setOnClickListener {
+        binding.tbTopbar.setNavigationOnClickListener {
             finish()
         }
 
@@ -38,6 +38,6 @@ class RegistrationScreenActivity: AppCompatActivity() {
     }
 
     private fun enableLinks() {
-        binding.importantInfo.movementMethod = LinkMovementMethod.getInstance()
+        binding.tvImportantInfo.movementMethod = LinkMovementMethod.getInstance()
     }
 }

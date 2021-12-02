@@ -1,4 +1,4 @@
-package com.example.first_homework.screens.activity.fragments
+package com.example.first_homework.screens.activity.fragments.activities
 
 import android.os.Bundle
 import android.view.View
@@ -6,14 +6,14 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.first_homework.BaseFragment
 import com.example.first_homework.R
-import com.example.first_homework.databinding.FragmentMyActivitiesBinding
-import com.example.first_homework.models.MyActivity
+import com.example.first_homework.databinding.FragmentUsersActivitiesBinding
+import com.example.first_homework.models.UserActivity
 import com.example.first_homework.screens.activity.Activities
 import com.example.first_homework.screens.activity.adapters.ActivitiesViewAdapter
 
-class MyActivities:
-    BaseFragment<FragmentMyActivitiesBinding>(R.layout.fragment_my_activities){
-    private val activities = Activities.getMyActivities()
+class UsersActivities:
+    BaseFragment<FragmentUsersActivitiesBinding>(R.layout.fragment_users_activities) {
+    private val activities = Activities.getUsersActivities()
 
     private val _adapter = ActivitiesViewAdapter(activities)
 
@@ -26,12 +26,11 @@ class MyActivities:
             layoutManager = LinearLayoutManager(requireContext())
         }
 
-        _adapter.setMyItemClickListener {
-                _, activityData ->
+        _adapter.setUserItemClickListener {
+                _, iActivity ->
             run {
-                val action =
-                    ActivitiesDirections.
-                    actionActivitiesFragmentToMyActivityInfo(activityData as MyActivity)
+                val action = ActivitiesDirections.
+                actionActivitiesFragmentToUserActivityInfo(iActivity as UserActivity)
                 findNavController().navigate(action)
             }
         }
