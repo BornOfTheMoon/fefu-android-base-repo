@@ -26,6 +26,8 @@ class UsersActivities:
             layoutManager = LinearLayoutManager(requireContext())
         }
 
+        _adapter.submitList(activities)
+
         _adapter.setUserItemClickListener {
                 _, iActivity ->
             run {

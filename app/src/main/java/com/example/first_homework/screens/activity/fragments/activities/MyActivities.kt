@@ -35,7 +35,8 @@ class MyActivities:
             layoutManager = LinearLayoutManager(requireContext())
         }
 
-        App.INSTANCE.database.activityDao().getAll().observe(viewLifecycleOwner) { activitiesList ->
+        App.INSTANCE.database.activityDao().getAll().observe(viewLifecycleOwner) {
+            activitiesList ->
             val packedList = packActivities(activitiesList)
 
             _adapter.submitList(packedList)

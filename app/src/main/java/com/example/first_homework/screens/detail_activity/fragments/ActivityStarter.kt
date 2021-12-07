@@ -52,7 +52,7 @@ class ActivityStarter:
                         0,
                         selectedActivity!!,
                         listOf(),
-                        LocalDateTime.now().minusHours(1),
+                        LocalDateTime.now().minusHours(2),
                         LocalDateTime.now(),
                     )
                 )
