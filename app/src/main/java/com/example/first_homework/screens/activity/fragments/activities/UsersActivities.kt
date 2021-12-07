@@ -15,7 +15,7 @@ class UsersActivities:
     BaseFragment<FragmentUsersActivitiesBinding>(R.layout.fragment_users_activities) {
     private val activities = Activities.getUsersActivities()
 
-    private val _adapter = ActivitiesViewAdapter(activities)
+    private val _adapter = ActivitiesViewAdapter()
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

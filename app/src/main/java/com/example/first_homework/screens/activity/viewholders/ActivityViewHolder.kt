@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.first_homework.models.IListItem
 import com.example.first_homework.R
 import com.example.first_homework.models.IActivity
-import com.example.first_homework.models.MyActivity
 
 open class ActivityViewHolder(itemView: View, listener: (Int, IActivity) -> Unit)
     : ListItemViewHolder(itemView) {

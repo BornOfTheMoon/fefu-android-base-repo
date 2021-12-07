@@ -24,7 +24,7 @@ class ActivityTypeViewHolder(
 
     @SuppressLint
     fun bind(type: ActivityType) {
-        tvActivityType.text = type.name
+        tvActivityType.text = type.title
         activityType = type
 
     }

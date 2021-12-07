@@ -1,10 +1,9 @@
 package com.example.first_homework.screens.activity.fragments.activities
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.example.first_homework.App
 import com.example.first_homework.BaseFragment
 import com.example.first_homework.R
 import com.example.first_homework.databinding.MyActivityCardInfoBinding
@@ -27,6 +26,22 @@ class MyActivityInfo:
             findNavController().popBackStack()
         }
 
+        binding.tbAction.setOnMenuItemClickListener {
+            when (it.order) {
+                MenuItemType.Delete.ordinal -> {
+                    App.INSTANCE.database.activityDao().deleteById(data.id)
+                    findNavController().popBackStack()
+                }
+                else -> {}
+            }
+            true
+        }
+
         super.onViewCreated(view, savedInstanceState)
     }
+}
+
+internal enum class MenuItemType {
+    Delete,
+    Share
 }

@@ -11,7 +11,6 @@ import com.example.first_homework.R
 import com.example.first_homework.databinding.FragmentActivitiesBinding
 import com.example.first_homework.screens.activity.adapters.ViewPagerAdapter
 
-
 class Activities: BaseFragment<FragmentActivitiesBinding>(R.layout.fragment_activities) {
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,10 +36,5 @@ class Activities: BaseFragment<FragmentActivitiesBinding>(R.layout.fragment_acti
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        binding.bStartNewActivity.setOnClickListener {
-            val direction = ActivitiesDirections.actionActivitiesFragmentToActivityActivity()
-            findNavController().navigate(direction)
-        }
     }
 }
