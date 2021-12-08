@@ -52,8 +52,8 @@ class ActivityStarter:
                         0,
                         selectedActivity!!,
                         listOf(),
-                        LocalDateTime.now().minusHours(2),
                         LocalDateTime.now(),
+                        LocalDateTime.now().plusMinutes(15),
                     )
                 )
 
