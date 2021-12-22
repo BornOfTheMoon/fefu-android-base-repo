@@ -4,7 +4,6 @@ import android.os.Build
 import android.os.Bundle
 import android.transition.Visibility
 import android.view.View
-import androidx.annotation.RequiresApi
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.first_homework.App
@@ -25,8 +24,6 @@ class MyActivities:
 
     private val _adapter = ActivitiesViewAdapter()
 
-
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -63,7 +60,6 @@ class MyActivities:
         findNavController().navigate(direction)
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     private fun packActivities(activitiesList: List<Activity>): List<IListItem> {
         val activitiesMap = mutableMapOf<String, MutableList<MyActivity>>()
 

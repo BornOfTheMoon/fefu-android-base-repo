@@ -1,7 +1,6 @@
 package com.example.first_homework.database
 
 import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -21,7 +20,6 @@ data class Activity(
     @ColumnInfo(name = "finish_time") val finishTime: LocalDateTime,
 ) {
 
-    @RequiresApi(Build.VERSION_CODES.O)
     fun toMyActivity(): MyActivity {
         return MyActivity(
             id,

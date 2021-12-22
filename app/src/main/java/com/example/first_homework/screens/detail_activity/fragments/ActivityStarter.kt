@@ -3,7 +3,6 @@ package com.example.first_homework.screens.detail_activity.fragments
 import android.os.Build
 import android.os.Bundle
 import android.view.View
-import androidx.annotation.RequiresApi
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.first_homework.App
@@ -22,7 +21,6 @@ class ActivityStarter:
 
     private var selectedActivity: ActivityType? = null
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
