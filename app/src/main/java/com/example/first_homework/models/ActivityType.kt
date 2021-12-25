@@ -4,6 +4,8 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class ActivityType (
-    val name: String
-) : Parcelable
+enum class ActivityType(val title: String) : Parcelable {
+    Run("Бег"),
+    Hike("Шаг"),
+    Bicycle("Велосипед")
+}

@@ -5,33 +5,6 @@ import com.example.first_homework.models.*
 class Activities {
     companion object {
         @JvmStatic
-        fun getMyActivities(): List<IListItem> =
-            listOf(
-                DateSeparator("Вчера"),
-
-                MyActivity(
-                    name = "Сёрфинг",
-                    metric = "14.32 км",
-                    finishDate = "29.10.2021",
-                    duration = "2 часа 46 минут",
-                    startTime = "14:05",
-                    finishTime = "16:51"
-                ),
-
-                DateSeparator("Май 2020 года"),
-
-                MyActivity(
-                    name = "Велосипед",
-                    metric = "1 км",
-                    finishDate = "20.05.2020",
-                    duration = "61 минута",
-                    startTime = "13:59",
-                    finishTime = "15:00"
-                ),
-            )
-
-
-        @JvmStatic
         fun getUsersActivities(): List<IListItem> =
             listOf(
                 DateSeparator("Вчера"),

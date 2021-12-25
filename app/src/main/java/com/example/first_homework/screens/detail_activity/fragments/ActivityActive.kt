@@ -13,7 +13,7 @@ class ActivityActive:
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val activityType = requireArguments()["ActivityType"] as ActivityType
 
-        binding.tvActivityType.text = activityType.name
+        binding.tvActivityType.text = activityType.title
 
         super.onViewCreated(view, savedInstanceState)
     }

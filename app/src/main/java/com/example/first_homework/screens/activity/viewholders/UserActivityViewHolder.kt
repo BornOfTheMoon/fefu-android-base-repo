@@ -2,7 +2,6 @@ package com.example.first_homework.screens.activity.viewholders
 
 import android.view.View
 import android.widget.TextView
-import androidx.recyclerview.widget.RecyclerView
 import com.example.first_homework.R
 import com.example.first_homework.models.IActivity
 import com.example.first_homework.models.IListItem
