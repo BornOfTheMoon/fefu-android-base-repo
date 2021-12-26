@@ -42,6 +42,7 @@ fun LocalDateTime.toFinishDateOrTime(): String {
     }
 }
 
+
 fun LocalDateTime.toTime(): String {
     return this.format(DateTimeFormatter.ofPattern("hh:mm"))
 }
@@ -49,7 +50,6 @@ fun LocalDateTime.toTime(): String {
 fun Duration.toFormattedDurationBetween(): String {
     return "${toHours()} ч. ${toMinutes() % 60} м."
 }
-
 fun Duration.toTimerFormat(): String {
     return "${toHours().toString().padStart(2, '0')}:" +
             "${(toMinutes() % 60).toString().padStart(2, '0')}:" +

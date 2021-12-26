@@ -65,8 +65,8 @@ class ActivityStarter:
                     Activity(
                         0,
                         selectedActivity!!,
-                        listOf(),
                         LocalDateTime.now(),
+                        listOf(),
                         null
                     )
                 ).toInt()

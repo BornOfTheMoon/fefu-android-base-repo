@@ -13,19 +13,18 @@ import java.time.LocalDateTime
 data class Activity(
     @PrimaryKey(autoGenerate = true) val id: Int,
     val type: ActivityType,
-    val coordinates: List<Pair<Double, Double>>,
     @ColumnInfo(name = "start_time") val startTime: LocalDateTime,
+    val coordinates: List<Pair<Double, Double>>,
     @ColumnInfo(name = "finish_time") val finishTime: LocalDateTime?,
 ) {
-
     fun toMyActivity(): MyActivity {
         return MyActivity(
             id,
             type.title,
+            startTime.toTime(),
             coordinates.getDistance().toFormattedDistance(),
             finishTime!!.toFinishDateOrTime(),
             Duration.between(startTime, finishTime).toFormattedDurationBetween(),
-            startTime.toTime(),
             finishTime.toTime(),
         )
     }

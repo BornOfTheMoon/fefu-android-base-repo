@@ -31,15 +31,16 @@ fun Double.toFormattedDistance(): String {
     val m = ceilDistance % 1000
 
     return when {
-        km > 0 && m > 0 -> "$km км. $m м."
-        km > 0 -> "$km км."
-        m >= 0 -> "$m м."
+        km > 0 && m > 0 -> "$km км $m м"
+        km > 0 -> "$km км"
+        m >= 0 -> "$m м"
         else -> throw(IllegalStateException("Distance can't be negative"))
     }
+
 }
 
 fun locationOfCoordinates(longitude: Double, latitude: Double): Location {
-    val location = Location("somewhere")
+    val location = Location("something")
     location.longitude = longitude
     location.latitude= latitude
 

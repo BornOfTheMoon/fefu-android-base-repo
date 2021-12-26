@@ -138,8 +138,8 @@ class ActivityService: Service() {
         )
 
         val notification = NotificationCompat.Builder(this, CHANNEL_ID)
-            .setContentTitle("Хэлоу")
-            .setContentText("Отслеживаю вашу активность")
+            .setContentTitle("Ваша активность")
+            .setContentText("Нажмите, чтобы увидеть подробности")
             .setSmallIcon(R.drawable.ic_location_icon)
             .setContentIntent(pendingIntent)
             .build()

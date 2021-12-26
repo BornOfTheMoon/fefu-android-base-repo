@@ -1,7 +1,5 @@
 package com.example.first_homework.screens.activity.fragments.activities
 
-import android.graphics.BitmapFactory
-import android.graphics.drawable.Icon
 import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
@@ -24,6 +22,7 @@ class MyActivities:
 
     private val _adapter = ActivitiesViewAdapter()
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -33,18 +32,20 @@ class MyActivities:
         }
 
         App.INSTANCE.database.activityDao().getAll().observe(viewLifecycleOwner) {
-            activitiesList ->
+                activitiesList ->
             val packedList = packActivities(activitiesList)
 
             _adapter.submitList(packedList)
 
-            if (packedList.isEmpty()) onMainScreen() else offMainScreen()
+            if (packedList.isEmpty()) onWelcomeViews() else offWelcomeViews()
 
         }
 
         _adapter.setMyItemClickListener(::myActivityClickListener)
 
         switchButtonBehaviour()
+
+
     }
 
     override fun onResume() {
@@ -76,7 +77,6 @@ class MyActivities:
             binding.bStartNewActivity.setOnClickListener(::newActivityStarterListener)
         }
     }
-
 
     private fun newActivityStarterListener(view: View) {
         println("new")
@@ -125,12 +125,12 @@ class MyActivities:
         return packedList
     }
 
-    private fun offMainScreen() {
+    private fun offWelcomeViews() {
         binding.tvHeader.visibility = View.INVISIBLE
         binding.tvSubHeader.visibility = View.INVISIBLE
     }
 
-    private fun onMainScreen() {
+    private fun onWelcomeViews() {
         binding.tvHeader.visibility = View.VISIBLE
         binding.tvSubHeader.visibility = View.VISIBLE
     }
