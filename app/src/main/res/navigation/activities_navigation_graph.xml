@@ -13,8 +13,8 @@
             app:destination="@id/myActivityInfo"
             app:launchSingleTop="false">
             <argument
-                android:name="Activity"
-                app:argType="com.example.first_homework.models.MyActivity"
+                android:name="activityId"
+                app:argType="integer"
                 />
         </action>
         <action
@@ -41,6 +41,12 @@
     <activity
         android:id="@+id/activityActivity"
         android:name="com.example.first_homework.screens.detail_activity.ActivityActivity"
-        android:label="DetailActivity" />
+        android:label="DetailActivity">
+        <argument
+            android:name="activityId"
+            app:argType="integer"
+            android:defaultValue="-1"
+            />
+    </activity>
 
 </navigation>
