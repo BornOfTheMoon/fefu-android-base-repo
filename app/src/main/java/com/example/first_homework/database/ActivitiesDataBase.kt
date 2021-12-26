@@ -11,7 +11,6 @@ import androidx.room.AutoMigration
     version = 2,
     entities = [Activity::class],
     exportSchema = true,
-    autoMigrations = [AutoMigration (from = 1, to = 2)]
 )
 abstract class ActivitiesDataBase: RoomDatabase() {
     abstract fun activityDao(): ActivityDao
