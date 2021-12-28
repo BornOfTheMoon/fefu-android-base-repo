@@ -5,6 +5,8 @@ plugins {
     id 'androidx.navigation.safeargs.kotlin'
 }
 
+apply plugin: "kotlin-kapt"
+
 android {
     compileSdk 31
 
@@ -16,6 +18,12 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation":"$projectDir/schemas".toString()]
+            }
+        }
     }
 
     buildTypes {
@@ -47,29 +55,31 @@ android {
     }
 }
 
-apply plugin: "kotlin-kapt"
-
 dependencies {
-    implementation 'androidx.core:core-ktx:1.6.0'
-    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.4.0'
     implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
-
     implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.0'
-    implementation 'androidx.fragment:fragment-ktx:1.3.6'
-
+    implementation 'androidx.fragment:fragment-ktx:1.4.0'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
-
-    testImplementation 'junit:junit:'
+    testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
-    implementation "androidx.room:room-runtime:2.3.0"
-    kapt "androidx.room:room-compiler:2.3.0"
+    implementation "androidx.room:room-runtime:2.4.0"
+    kapt "androidx.room:room-compiler:2.4.0"
+    annotationProcessor 'androidx.room:room-compiler:2.4.0'
+    implementation 'androidx.room:room-rxjava2:2.4.0'
+    androidTestImplementation 'androidx.room:room-testing:2.4.0'
 
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
 
     implementation 'com.google.code.gson:gson:2.8.7'
+
+    implementation 'org.osmdroid:osmdroid-android:6.1.10'
+
+    implementation 'com.google.android.gms:play-services-location:18.0.0'
 }

@@ -1,9 +1,7 @@
 package com.example.first_homework.extensions
 
-import android.os.Build
 import android.text.format.DateUtils
 import java.time.Duration
-import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
@@ -44,10 +42,16 @@ fun LocalDateTime.toFinishDateOrTime(): String {
     }
 }
 
+
 fun LocalDateTime.toTime(): String {
     return this.format(DateTimeFormatter.ofPattern("hh:mm"))
 }
 
 fun Duration.toFormattedDurationBetween(): String {
     return "${toHours()} ч. ${toMinutes() % 60} м."
+}
+fun Duration.toTimerFormat(): String {
+    return "${toHours().toString().padStart(2, '0')}:" +
+            "${(toMinutes() % 60).toString().padStart(2, '0')}:" +
+            (toMillis() / 1000 % 60).toString().padStart(2, '0')
 }

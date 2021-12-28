@@ -1,9 +1,8 @@
 package com.example.first_homework.screens.activity.fragments.activities
 
-import android.os.Build
 import android.os.Bundle
-import android.transition.Visibility
 import android.view.View
+import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.first_homework.App
@@ -16,13 +15,13 @@ import com.example.first_homework.models.DateSeparator
 import com.example.first_homework.models.IActivity
 import com.example.first_homework.models.IListItem
 import com.example.first_homework.models.MyActivity
-import com.example.first_homework.screens.activity.Activities
 import com.example.first_homework.screens.activity.adapters.ActivitiesViewAdapter
 
 class MyActivities:
     BaseFragment<FragmentMyActivitiesBinding>(R.layout.fragment_my_activities) {
 
     private val _adapter = ActivitiesViewAdapter()
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -33,29 +32,70 @@ class MyActivities:
         }
 
         App.INSTANCE.database.activityDao().getAll().observe(viewLifecycleOwner) {
-            activitiesList ->
+                activitiesList ->
             val packedList = packActivities(activitiesList)
 
             _adapter.submitList(packedList)
 
-            if (packedList.isEmpty()) onMainScreen() else offMainScreen()
+            if (packedList.isEmpty()) onWelcomeViews() else offWelcomeViews()
 
         }
 
         _adapter.setMyItemClickListener(::myActivityClickListener)
 
-        binding.bStartNewActivity.setOnClickListener(::newActivityStarterListener)
+        switchButtonBehaviour()
+
+
     }
 
+    override fun onResume() {
+        super.onResume()
+        switchButtonBehaviour()
+    }
+
+    private fun switchButtonBehaviour() {
+        val lastActivity = App.INSTANCE.database.activityDao().getLast()
+
+        lastActivity?.let {
+            lastActivity.finishTime?.let {
+                binding.bStartNewActivity.setImageDrawable(
+                    ContextCompat.getDrawable(requireContext(), R.drawable.ic_start)
+                )
+                binding.bStartNewActivity.setOnClickListener(::newActivityStarterListener)
+            } ?: run {
+                binding.bStartNewActivity.setImageDrawable(
+                    ContextCompat.getDrawable(requireContext(), R.drawable.ic_activity_started_timer)
+                )
+                binding.bStartNewActivity.setOnClickListener {
+                    continueStartedActivity(lastActivity.id)
+                }
+            }
+        } ?: run {
+            binding.bStartNewActivity.setImageDrawable(
+                ContextCompat.getDrawable(requireContext(), R.drawable.ic_start)
+            )
+            binding.bStartNewActivity.setOnClickListener(::newActivityStarterListener)
+        }
+    }
 
     private fun newActivityStarterListener(view: View) {
+        println("new")
         val direction = ActivitiesDirections.actionActivitiesFragmentToActivityActivity()
+        findNavController().navigate(direction)
+    }
+
+    private fun continueStartedActivity(activityId: Int) {
+        println("continue")
+        val direction = ActivitiesDirections.actionActivitiesFragmentToActivityActivity(
+            activityId = activityId
+        )
         findNavController().navigate(direction)
     }
 
     private fun myActivityClickListener(position: Int, activityData: IActivity) {
         val direction =
-            ActivitiesDirections.actionActivitiesFragmentToMyActivityInfo(activityData as MyActivity)
+            ActivitiesDirections.
+            actionActivitiesFragmentToMyActivityInfo((activityData as MyActivity).id)
 
         findNavController().navigate(direction)
     }
@@ -64,11 +104,13 @@ class MyActivities:
         val activitiesMap = mutableMapOf<String, MutableList<MyActivity>>()
 
         activitiesList.forEach {
-            if (!activitiesMap.containsKey(it.finishTime.toDateSeparator())) {
-                activitiesMap[it.finishTime.toDateSeparator()] = mutableListOf()
-            }
+            it.finishTime?.let { finishTime ->
+                if (!activitiesMap.containsKey(finishTime.toDateSeparator())) {
+                    activitiesMap[finishTime.toDateSeparator()] = mutableListOf()
+                }
 
-            activitiesMap[it.finishTime.toDateSeparator()]?.add(it.toMyActivity())
+                activitiesMap[finishTime.toDateSeparator()]?.add(it.toMyActivity())
+            }
         }
 
         val packedList = mutableListOf<IListItem>()
@@ -83,12 +125,12 @@ class MyActivities:
         return packedList
     }
 
-    private fun offMainScreen() {
+    private fun offWelcomeViews() {
         binding.tvHeader.visibility = View.INVISIBLE
         binding.tvSubHeader.visibility = View.INVISIBLE
     }
 
-    private fun onMainScreen() {
+    private fun onWelcomeViews() {
         binding.tvHeader.visibility = View.VISIBLE
         binding.tvSubHeader.visibility = View.VISIBLE
     }
